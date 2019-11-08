@@ -3,10 +3,10 @@ package com.ea.music.rmgr.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.ea.music.rmgr.constants.MusicManagerConstants;
@@ -37,8 +37,7 @@ public class ManagerService {
 		MusicMgrHeader header = new MusicMgrHeader();
 		String requestId = null;
 		try {
-		Random random = new Random();
-		requestId = String.valueOf(random.nextLong());
+		requestId = "MM"+UUID.randomUUID().toString()+location.substring(0, 2).toUpperCase()  ;
 		logger.info("loadAllFestivals for festival in:"+location+" for request id:"+requestId);
 		//to track each request 
 		//that comes to the server
@@ -103,6 +102,7 @@ public class ManagerService {
 		member1.setGender("male");
 		member1.setAddress("NA");
 		member1.setName("Sonu Nigam");
+		member1.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		BandMember member2= new BandMember();
@@ -111,6 +111,7 @@ public class ManagerService {
 		member2.setGender("male");
 		member2.setAddress("NA");
 		member2.setName("Sunidhi Chauhan");
+		member2.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		band1.setBandMembers(bandMembers);
@@ -154,6 +155,7 @@ public class ManagerService {
 		member1.setGender("female");
 		member1.setAddress("NA");
 		member1.setName("Shane Twain");
+		member1.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		BandMember member2= new BandMember();
@@ -162,6 +164,7 @@ public class ManagerService {
 		member2.setGender("female");
 		member2.setAddress("NA");
 		member2.setName("Sail Drumm");
+		member2.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		band1.setBandMembers(bandMembers);
