@@ -14,7 +14,7 @@ public class MusicManagerStarter {
 
     public static void main(String[] args) {
     	System.setProperty("server.servlet.context-path", "/app");
-    	System.setProperty("server.port", "8091");
+    	System.getenv("PORT");
         SpringApplication.run(MusicManagerStarter.class, args);
     }
 
