@@ -30,4 +30,11 @@ public class MusicMgrResponse {
 	}
 
 	List<MusicFestival> festivals;
+
+	@Override
+	public String toString() {
+		return "MusicMgrResponse [header=" + header + ", festivals=" + festivals + ", getHeader()=" + getHeader()
+				+ ", getFestivals()=" + getFestivals() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 }

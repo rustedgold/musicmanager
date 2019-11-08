@@ -58,4 +58,14 @@ public class MusicFestival {
 		this.noOfAudience = noOfAudience;
 	}
 
+	@Override
+	public String toString() {
+		return "MusicFestival [festivalId=" + festivalId + ", festivalName=" + festivalName + ", festivalLocation="
+				+ festivalLocation + ", bands=" + bands + ", noOfAudience=" + noOfAudience + ", getFestivalId()="
+				+ getFestivalId() + ", getBands()=" + getBands() + ", getFestivalName()=" + getFestivalName()
+				+ ", getFestivalLocation()=" + getFestivalLocation() + ", getNoOfAudience()=" + getNoOfAudience()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+
 }

@@ -39,7 +39,7 @@ public class ManagerService {
 		try {
 		Random random = new Random();
 		requestId = String.valueOf(random.nextInt());
-		logger.info("loadAllFestivals for festival in:"+location+"for request id:"+requestId);
+		logger.info("loadAllFestivals for festival in:"+location+" for request id:"+requestId);
 		//to track each request 
 		//that comes to the server
 		header.setRequestId(requestId);
@@ -50,12 +50,15 @@ public class ManagerService {
 			case "india":
 				response.setFestivals(loadFestivalsInIndia());
 				header.setStatus(MusicManagerConstants.SUCCESS);
+				break;
 			case "melbourne":
 				response.setFestivals(loadFestivalsInMelbourne());
 				header.setStatus(MusicManagerConstants.SUCCESS);
+				break;
 			default:
 				response.setFestivals(invalidLocation());
 				header.setStatus(MusicManagerConstants.FAIL);
+				break;
 		}
 		
 		response.setHeader(header);
@@ -63,6 +66,7 @@ public class ManagerService {
 			logger.error("Issue processing the request for "+requestId+"Error Details",ex);
 			throw new TechnicalException("Error processing loadAllFestivals",requestId);
 		}
+		logger.info("Response sent after processing :"+response);
 		return response;
 	}
 
@@ -71,9 +75,11 @@ public class ManagerService {
 	 * festivals in india/dummy data
 	 */
 	private List<MusicFestival> loadFestivalsInIndia() {
+		logger.info("Loading music festivals in India");
 		List<MusicFestival> festivals = new ArrayList<MusicFestival>();
 		MusicFestival festival1 = new MusicFestival();
 
+		festival1.setFestivalId(Long.valueOf("234234234234"));
 		festival1.setFestivalLocation("INDIA");
 		festival1.setFestivalName("Diwali Dhamaka");
 		festival1.setNoOfAudience("10000");
@@ -108,8 +114,9 @@ public class ManagerService {
 		bandMembers.add(member1);
 		
 		band1.setBandMembers(bandMembers);
+		bands.add(band1);
 		festival1.setBands(bands);
-		
+		festivals.add(festival1);
 		return festivals;
 
 	}
@@ -119,10 +126,11 @@ public class ManagerService {
 	 * festivals in melbourne/dummy data
 	 */
 	private List<MusicFestival> loadFestivalsInMelbourne() {
-
+		logger.info("Loading music festivals in Melbourne");
 		List<MusicFestival> festivals = new ArrayList<MusicFestival>();
 		MusicFestival festival1 = new MusicFestival();
-
+		festival1.setFestivalId(Long.valueOf("534234234234"));
+		
 		festival1.setFestivalLocation("Melbourne");
 		festival1.setFestivalName("Halloween Celebration");
 		festival1.setNoOfAudience("2000");
@@ -157,6 +165,7 @@ public class ManagerService {
 		bandMembers.add(member1);
 		
 		band1.setBandMembers(bandMembers);
+		bands.add(band1);
 		festival1.setBands(bands);
 		
 		festivals.add(festival1);
@@ -169,6 +178,7 @@ public class ManagerService {
 	 * @return empty Message back
 	 */
 	private List<MusicFestival> invalidLocation() {
+		logger.info("Loading no music festivals /Invalid Location");
 		return new ArrayList<MusicFestival>();
 	}
 

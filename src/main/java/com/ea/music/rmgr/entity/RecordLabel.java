@@ -13,7 +13,6 @@ public class RecordLabel {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long labelId;
-	private ArrayList<Band> bands;
 	private String labelOwner;
 	private String labelContact;
 
@@ -33,12 +32,13 @@ public class RecordLabel {
 		this.labelContact = labelContact;
 	}
 
-	public ArrayList<Band> getBands() {
-		return bands;
-	}
 
-	public void setBands(ArrayList<Band> bands) {
-		this.bands = bands;
+	@Override
+	public String toString() {
+		return "RecordLabel [labelId=" + labelId + ", labelOwner=" + labelOwner + ", labelContact="
+				+ labelContact + ", getLabelOwner()=" + getLabelOwner() + ", getLabelContact()=" + getLabelContact()
+				 + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 
 }

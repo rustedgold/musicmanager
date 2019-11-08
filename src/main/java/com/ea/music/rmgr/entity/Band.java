@@ -63,5 +63,15 @@ public class Band {
 	public void setLabel(RecordLabel label) {
 		this.label = label;
 	}
+	@Override
+	public String toString() {
+		return "Band [bandId=" + bandId + ", bandName=" + bandName + ", bandMembers=" + bandMembers
+				+ ", bandPrimaryContact=" + bandPrimaryContact + ", bandManager=" + bandManager + ", bandLocation="
+				+ bandLocation + ", label=" + label + ", getBandId()=" + getBandId() + ", getBandMembers()="
+				+ getBandMembers() + ", getBandPrimaryContact()=" + getBandPrimaryContact() + ", getBandManager()="
+				+ getBandManager() + ", getBandLocation()=" + getBandLocation() + ", getBandName()=" + getBandName()
+				+ ", getLabel()=" + getLabel() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 	
 }
