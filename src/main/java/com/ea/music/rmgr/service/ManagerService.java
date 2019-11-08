@@ -103,6 +103,7 @@ public class ManagerService {
 		member1.setGender("male");
 		member1.setAddress("NA");
 		member1.setName("Sonu Nigam");
+		member1.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		BandMember member2= new BandMember();
@@ -111,6 +112,7 @@ public class ManagerService {
 		member2.setGender("male");
 		member2.setAddress("NA");
 		member2.setName("Sunidhi Chauhan");
+		member2.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		band1.setBandMembers(bandMembers);
@@ -154,6 +156,7 @@ public class ManagerService {
 		member1.setGender("female");
 		member1.setAddress("NA");
 		member1.setName("Shane Twain");
+		member1.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		BandMember member2= new BandMember();
@@ -162,6 +165,7 @@ public class ManagerService {
 		member2.setGender("female");
 		member2.setAddress("NA");
 		member2.setName("Sail Drumm");
+		member2.setActiveMember("Y");
 		bandMembers.add(member1);
 		
 		band1.setBandMembers(bandMembers);
