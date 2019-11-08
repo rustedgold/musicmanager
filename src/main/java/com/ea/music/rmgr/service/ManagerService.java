@@ -38,7 +38,7 @@ public class ManagerService {
 		String requestId = null;
 		try {
 		Random random = new Random();
-		requestId = String.valueOf(random.nextInt());
+		requestId = String.valueOf(random.nextLong());
 		logger.info("loadAllFestivals for festival in:"+location+" for request id:"+requestId);
 		//to track each request 
 		//that comes to the server
