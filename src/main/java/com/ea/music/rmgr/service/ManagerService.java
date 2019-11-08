@@ -3,10 +3,10 @@ package com.ea.music.rmgr.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.ea.music.rmgr.constants.MusicManagerConstants;
@@ -37,8 +37,7 @@ public class ManagerService {
 		MusicMgrHeader header = new MusicMgrHeader();
 		String requestId = null;
 		try {
-		Random random = new Random();
-		requestId = String.valueOf(random.nextLong());
+		requestId = "MM"+UUID.randomUUID().toString()+location.substring(0, 2).toUpperCase()  ;
 		logger.info("loadAllFestivals for festival in:"+location+" for request id:"+requestId);
 		//to track each request 
 		//that comes to the server
