@@ -14,6 +14,7 @@ import com.ea.music.rmgr.entity.Band;
 import com.ea.music.rmgr.entity.BandMember;
 import com.ea.music.rmgr.entity.MusicFestival;
 import com.ea.music.rmgr.entity.RecordLabel;
+import com.ea.music.rmgr.exception.TechnicalException;
 import com.ea.music.rmgr.model.MusicMgrHeader;
 import com.ea.music.rmgr.model.MusicMgrResponse;
 
@@ -31,13 +32,14 @@ public class ManagerService {
 	 * @param location
 	 * @return List of Music festivals based on location
 	 */
-	public MusicMgrResponse loadAllFestivals(String location) {
+	public MusicMgrResponse loadAllFestivals(String location) throws TechnicalException{
 		MusicMgrResponse response = new MusicMgrResponse();
 		MusicMgrHeader header = new MusicMgrHeader();
-		
+		String requestId = null;
+		try {
 		Random random = new Random();
-		String requestId = String.valueOf(random.nextInt());
-		logger.info("loadAllFestivals for festival in:"+location+"for request id"+requestId);
+		requestId = String.valueOf(random.nextInt());
+		logger.info("loadAllFestivals for festival in:"+location+"for request id:"+requestId);
 		//to track each request 
 		//that comes to the server
 		header.setRequestId(requestId);
@@ -45,18 +47,22 @@ public class ManagerService {
 		// initiates a db call;
 		// for now loading a pre populated Object
 		switch (location) {
-		case "india":
-			response.setFestivals(loadFestivalsInIndia());
-			header.setStatus(MusicManagerConstants.SUCCESS);
-		case "melbourne":
-			response.setFestivals(loadFestivalsInMelbourne());
-			header.setStatus(MusicManagerConstants.SUCCESS);
-		default:
-			response.setFestivals(invalidLocation());
-			header.setStatus(MusicManagerConstants.FAIL);
+			case "india":
+				response.setFestivals(loadFestivalsInIndia());
+				header.setStatus(MusicManagerConstants.SUCCESS);
+			case "melbourne":
+				response.setFestivals(loadFestivalsInMelbourne());
+				header.setStatus(MusicManagerConstants.SUCCESS);
+			default:
+				response.setFestivals(invalidLocation());
+				header.setStatus(MusicManagerConstants.FAIL);
 		}
 		
 		response.setHeader(header);
+		}catch(Exception ex) {
+			logger.error("Issue processing the request for "+requestId+"Error Details",ex);
+			throw new TechnicalException("Error processing loadAllFestivals",requestId);
+		}
 		return response;
 	}
 
