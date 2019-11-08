@@ -17,4 +17,11 @@ public class MusicMgrHeader {
 		this.status = status;
 	}
 	private String status;
+
+	@Override
+	public String toString() {
+		return "MusicMgrHeader [requestId=" + requestId + ", status=" + status + ", getRequestId()=" + getRequestId()
+				+ ", getStatus()=" + getStatus() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 }

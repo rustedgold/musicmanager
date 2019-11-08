@@ -54,4 +54,13 @@ public class BandMember {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Override
+	public String toString() {
+		return "BandMember [memberId=" + memberId + ", name=" + name + ", address=" + address + ", contact=" + contact
+				+ ", age=" + age + ", gender=" + gender + ", activeMember=" + activeMember + ", getAddress()="
+				+ getAddress() + ", getContact()=" + getContact() + ", getAge()=" + getAge() + ", getGender()="
+				+ getGender() + ", getActiveMember()=" + getActiveMember() + ", getName()=" + getName()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
 }

@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ea.music.rmgr.exception.TechnicalException;
 import com.ea.music.rmgr.model.MusicMgrHeader;
 import com.ea.music.rmgr.model.MusicMgrResponse;
 import com.ea.music.rmgr.service.ManagerService;
@@ -29,8 +29,15 @@ public class MusicManagerController {
 		try {
 			logger.info("Request music manger: load all festivls data for location: "+location);
 			response=  service.loadAllFestivals(location.toLowerCase());
+		}catch(TechnicalException ex) {
+			logger.error("Technical Error returning the data",ex);
+			MusicMgrHeader header = new MusicMgrHeader();
+			header.setStatus("FAIL");
+			header.setRequestId(ex.getRequestid());
+			response = new MusicMgrResponse();
+			response.setHeader(header);
 		}catch(Exception ex){
-			logger.error("Error returning the data",ex);
+			logger.error("Error processing the data",ex);
 			MusicMgrHeader header = new MusicMgrHeader();
 			header.setStatus("FAIL");
 			response = new MusicMgrResponse();
