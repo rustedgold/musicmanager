@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.ea.music.rmgr.constants.MusicManagerConstants;
@@ -21,8 +24,9 @@ import com.ea.music.rmgr.model.MusicMgrResponse;
  * and/or db calls
  **/
 @Service
-public class ManagerService {
 
+public class ManagerService {
+	Logger logger =LoggerFactory.getLogger(ManagerService.class);
 	/**
 	 * @param location
 	 * @return List of Music festivals based on location
@@ -33,7 +37,7 @@ public class ManagerService {
 		
 		Random random = new Random();
 		String requestId = String.valueOf(random.nextInt());
-		
+		logger.info("loadAllFestivals for festival in:"+location+"for request id"+requestId);
 		//to track each request 
 		//that comes to the server
 		header.setRequestId(requestId);

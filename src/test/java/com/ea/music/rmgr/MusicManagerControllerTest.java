@@ -1,31 +1,17 @@
 package com.ea.music.rmgr;
 
-import junit.framework.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class MusicManagerControllerTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public MusicManagerControllerTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( MusicManagerControllerTest.class );
-    }
-
 }
