@@ -25,7 +25,6 @@ import com.ea.music.rmgr.model.MusicMgrResponse;
  * and/or db calls
  **/
 @Service
-
 public class ManagerService {
 	Logger logger =LoggerFactory.getLogger(ManagerService.class);
 	/**
@@ -112,7 +111,7 @@ public class ManagerService {
 		member2.setAddress("NA");
 		member2.setName("Sunidhi Chauhan");
 		member2.setActiveMember("Y");
-		bandMembers.add(member1);
+		bandMembers.add(member2);
 		
 		band1.setBandMembers(bandMembers);
 		bands.add(band1);
@@ -165,7 +164,7 @@ public class ManagerService {
 		member2.setAddress("NA");
 		member2.setName("Sail Drumm");
 		member2.setActiveMember("Y");
-		bandMembers.add(member1);
+		bandMembers.add(member2);
 		
 		band1.setBandMembers(bandMembers);
 		bands.add(band1);
