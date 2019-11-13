@@ -90,7 +90,7 @@ public class MusicManagerHelper {
 		festival1.setFestivalId(Long.valueOf("534234234234"));
 		
 		festival1.setFestivalLocation("Melbourne");
-		festival1.setFestivalName("BetaGamma festival");
+		festival1.setFestivalName("Beta festival");
 		festival1.setNoOfAudience("2000");
 		
 		
@@ -143,10 +143,19 @@ public class MusicManagerHelper {
 		bands.add(band1);
 		bands.add(band2);
 		
+		MusicFestival festival3 = new MusicFestival();
+		festival3.setFestivalId(Long.valueOf("534234234234"));
+		
+		festival3.setFestivalLocation("Melbourne");
+		festival3.setFestivalName("Alpha festival");
+		festival3.setNoOfAudience("2000");
+		
 		festivals.add(festival1);
 		festivals.add(festival2);
 		band1.setFestivals(festivals);
-		band2.setFestivals(festivals);
+		List<MusicFestival> festivals2 = new ArrayList<MusicFestival>();
+		festivals2.add(festival3);
+		band2.setFestivals(festivals2);
 		
 		label1.setBands(bands);
 		
