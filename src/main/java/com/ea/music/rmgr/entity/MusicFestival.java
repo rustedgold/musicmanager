@@ -1,7 +1,5 @@
 package com.ea.music.rmgr.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +13,7 @@ public class MusicFestival {
     private Long festivalId;
 	private String festivalName;
 	private String festivalLocation;
-	private List<Band> bands;
+
 	public Long getFestivalId() {
 		return festivalId;
 	}
@@ -24,13 +22,6 @@ public class MusicFestival {
 		this.festivalId = festivalId;
 	}
 
-	public List<Band> getBands() {
-		return bands;
-	}
-
-	public void setBands(List<Band> bands) {
-		this.bands = bands;
-	}
 
 	private String noOfAudience;
 
@@ -61,11 +52,7 @@ public class MusicFestival {
 	@Override
 	public String toString() {
 		return "MusicFestival [festivalId=" + festivalId + ", festivalName=" + festivalName + ", festivalLocation="
-				+ festivalLocation + ", bands=" + bands + ", noOfAudience=" + noOfAudience + ", getFestivalId()="
-				+ getFestivalId() + ", getBands()=" + getBands() + ", getFestivalName()=" + getFestivalName()
-				+ ", getFestivalLocation()=" + getFestivalLocation() + ", getNoOfAudience()=" + getNoOfAudience()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+				+ festivalLocation + ", noOfAudience=" + noOfAudience + "]";
 	}
 
 }

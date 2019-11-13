@@ -15,6 +15,7 @@ public class Band {
     private Long bandId;
 	private String bandName ;
 	private List<BandMember> bandMembers ;
+	private List<MusicFestival> festivals;
 	
 	public Long getBandId() {
 		return bandId;
@@ -31,7 +32,6 @@ public class Band {
 	private String bandPrimaryContact ;
 	private String bandManager ;
 	private String bandLocation ;
-	private RecordLabel label;
 	
 	public String getBandPrimaryContact() {
 		return bandPrimaryContact;
@@ -57,21 +57,23 @@ public class Band {
 	public void setBandName(String bandName) {
 		this.bandName = bandName;
 	}
-	public RecordLabel getLabel() {
-		return label;
+	/**
+	 * @return the festivals
+	 */
+	public List<MusicFestival> getFestivals() {
+		return festivals;
 	}
-	public void setLabel(RecordLabel label) {
-		this.label = label;
+	/**
+	 * @param festivals the festivals to set
+	 */
+	public void setFestivals(List<MusicFestival> festivals) {
+		this.festivals = festivals;
 	}
 	@Override
 	public String toString() {
-		return "Band [bandId=" + bandId + ", bandName=" + bandName + ", bandMembers=" + bandMembers
-				+ ", bandPrimaryContact=" + bandPrimaryContact + ", bandManager=" + bandManager + ", bandLocation="
-				+ bandLocation + ", label=" + label + ", getBandId()=" + getBandId() + ", getBandMembers()="
-				+ getBandMembers() + ", getBandPrimaryContact()=" + getBandPrimaryContact() + ", getBandManager()="
-				+ getBandManager() + ", getBandLocation()=" + getBandLocation() + ", getBandName()=" + getBandName()
-				+ ", getLabel()=" + getLabel() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "Band [bandId=" + bandId + ", bandName=" + bandName + ", bandMembers=" + bandMembers + ", festivals="
+				+ festivals + ", bandPrimaryContact=" + bandPrimaryContact + ", bandManager=" + bandManager
+				+ ", bandLocation=" + bandLocation + "]";
 	}
 	
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ea.music.rmgr.exception.TechnicalException;
+import com.ea.music.rmgr.model.MusicManagerRes;
 import com.ea.music.rmgr.model.MusicMgrHeader;
 import com.ea.music.rmgr.model.MusicMgrResponse;
 import com.ea.music.rmgr.service.ManagerService;
@@ -25,24 +26,24 @@ public class MusicManagerController {
 	
 	@CrossOrigin
 	@ApiOperation(value = "Loads all the music festivals in a location")
-	@GetMapping("/loadAllMusicFestivals/{location}")
-    public MusicMgrResponse loadAllMusicFestivals(@PathVariable String location) {
-		MusicMgrResponse response = null;
+	@GetMapping("/loadAllLabels/{name}")
+    public MusicManagerRes loadAllLabels(@PathVariable String name) {
+		MusicManagerRes response = null;
 		try {
-			logger.info("Request music manger: load all festivls data for location: "+location);
-			response=  service.loadAllFestivals(location.toLowerCase());
+			logger.info("Request music manger: Load all festivals data for location: "+name);
+			response=  service.loadAllLabels(name.toLowerCase());
 		}catch(TechnicalException ex) {
 			logger.error("Technical Error returning the data",ex);
 			MusicMgrHeader header = new MusicMgrHeader();
 			header.setStatus("FAIL");
 			header.setRequestId(ex.getRequestid());
-			response = new MusicMgrResponse();
+			response = new MusicManagerRes();
 			response.setHeader(header);
 		}catch(Exception ex){
 			logger.error("Error processing the data",ex);
 			MusicMgrHeader header = new MusicMgrHeader();
 			header.setStatus("FAIL");
-			response = new MusicMgrResponse();
+			response = new MusicManagerRes();
 			response.setHeader(header);
 		}
 			return response;
