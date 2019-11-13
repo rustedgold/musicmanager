@@ -1,6 +1,6 @@
 package com.ea.music.rmgr.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +15,8 @@ public class RecordLabel {
     private Long labelId;
 	private String labelOwner;
 	private String labelContact;
-
+	List<Band> bands;
+ 
 	public String getLabelOwner() {
 		return labelOwner;
 	}
@@ -35,10 +36,22 @@ public class RecordLabel {
 
 	@Override
 	public String toString() {
-		return "RecordLabel [labelId=" + labelId + ", labelOwner=" + labelOwner + ", labelContact="
-				+ labelContact + ", getLabelOwner()=" + getLabelOwner() + ", getLabelContact()=" + getLabelContact()
-				 + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "RecordLabel [labelId=" + labelId + ", labelOwner=" + labelOwner + ", labelContact=" + labelContact
+				+ ", bands=" + bands + "]";
+	}
+
+	/**
+	 * @return the bands
+	 */
+	public List<Band> getBands() {
+		return bands;
+	}
+
+	/**
+	 * @param bands the bands to set
+	 */
+	public void setBands(List<Band> bands) {
+		this.bands = bands;
 	}
 
 }
